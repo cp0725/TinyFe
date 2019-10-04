@@ -52,6 +52,7 @@ window.hashChange = function (to, from, next) {
   }
 }
 
+// Preload 预加载一次加载全部不生效
 function getPreload(loadList) {
   loadList.map(item => {
     var tag = document.createElement(item.name)
