@@ -50,5 +50,18 @@ window.hashChange = function (to, from, next) {
   }
 }
 
+getPreload(demo1.loadList)
+getPreload(demo2.loadList)
+
+function getPreload(loadList) {
+  loadList.map(item => {
+    var tag = document.createElement(item.name)
+    for (var key in item.attribs) {
+      tag[key] = item.attribs[key]
+    }
+    document.getElementsByTagName('head')[0].appendChild(tag)
+  })  
+}
+
 location.hash.slice(1, 6) === '/app1' && rebder(demo1)
 location.hash.slice(1, 6) === '/app2' && rebder(demo2)
