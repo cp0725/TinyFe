@@ -62,5 +62,11 @@ function getPreload(loadList) {
   })  
 }
 
-location.hash.slice(1, 6) === '/app1' && rebder(demo1)
-location.hash.slice(1, 6) === '/app2' && rebder(demo2)
+if (location.hash.slice(1, 6) === '/app1'){
+  rebder(demo1)
+  getPreload(demo2.loadList)
+}
+if (location.hash.slice(1, 6) === '/app2'){
+  rebder(demo2)
+  getPreload(demo1.loadList)
+}
