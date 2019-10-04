@@ -18,16 +18,11 @@ function rebder(params) {
 }
 
 function delApp() {
-  var index = 0
   const head = document.getElementsByTagName('head')[0]
   const linkListLength = head.getElementsByTagName('link').length
   for (var i = 0; i < linkListLength; i++) {
     const linkList = head.getElementsByTagName('link')
-    if (linkList[index].rel === 'preload'){
-      index += 1
-    }else{
-      head.removeChild(linkList[index])
-    }
+    head.removeChild(linkList[0])
   }
   const body = document.getElementsByTagName('body')[0]
   const scriptListLength = body.getElementsByTagName('script').length
@@ -48,10 +43,12 @@ window.hashChange = function (to, from, next) {
   if (fromPath === '/app1' && toPath === '/app2') {
     delApp()
     rebder(demo2)
+    getPreload(demo1.loadList)
   }
   if (fromPath === '/app2' && toPath === '/app1') {
     delApp()
     rebder(demo1)
+    getPreload(demo2.loadList)
   }
 }
 
@@ -64,9 +61,6 @@ function getPreload(loadList) {
     document.getElementsByTagName('head')[0].appendChild(tag)
   })  
 }
-
-getPreload(demo1.loadList)
-getPreload(demo2.loadList)
 
 location.hash.slice(1, 6) === '/app1' && rebder(demo1)
 location.hash.slice(1, 6) === '/app2' && rebder(demo2)
