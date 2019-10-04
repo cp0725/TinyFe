@@ -6,4 +6,4 @@
 
 访问地址：
 
-https://cp0725.github.io/TinyFe/dist/index.html
+https://cp0725.github.io/TinyFe/dist/index.html#/app1/a

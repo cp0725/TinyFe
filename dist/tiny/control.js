@@ -18,16 +18,17 @@ function rebder(params) {
 }
 
 function delApp() {
-  const linkListLength = document.getElementsByTagName('link').length
+  const head = document.getElementsByTagName('head')[0]
+  const linkListLength = head.getElementsByTagName('link').length
   for (var i = 0; i < linkListLength; i++) {
-    const linkList = document.getElementsByTagName('link')
-    document.getElementsByTagName('head')[0].removeChild(linkList[0])
+    const linkList = head.getElementsByTagName('link')
+    head.removeChild(linkList[0])
   }
-
-  const scriptListLength = document.getElementsByTagName('script').length
+  const body = document.getElementsByTagName('body')[0]
+  const scriptListLength = body.getElementsByTagName('script').length
   for (var i = 0; i < scriptListLength; i++) {
-    const scriptList = document.getElementsByTagName('script')
-    document.getElementsByTagName('body')[0].removeChild(scriptList[0])
+    const scriptList = body.getElementsByTagName('script')
+    body.removeChild(scriptList[0])
   }
 
   document.getElementById('app').innerHTML = ''
